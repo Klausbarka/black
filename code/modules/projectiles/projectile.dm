@@ -50,6 +50,8 @@
 	var/drowsy = 0
 	var/agony = 0
 
+	var/pen = 10//Значение пробивной силы пули. У каждой будет свое значение.
+
 
 	proc/on_hit(var/atom/target, var/blocked = 0)
 		if(blocked >= 2)		return 0//Full block
@@ -115,6 +117,17 @@
 					msg_admin_attack("ATTACK: UNKNOWN shot [M] ([M.ckey]) with a [src]") //BS12 EDIT ALG
 
 		spawn(0)
+
+			if(istype(A,/mob/living/carbon/human))
+				bumped = 0
+				src.pen = A:apen - src.pen
+				if(src.pen <=0)
+					bumped = 0
+//					density = 0
+//					invisibility = 101
+//					del(src)
+//				else
+//					forcedodge = -1
 
 			if(A)
 				if (!forcedodge)

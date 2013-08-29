@@ -7,6 +7,8 @@
 	var/list/hud_list = list()
 	var/datum/species/species //Contains icon generation and language information, set during New().
 
+	var/apen = 100//Значение сопротивления пробивной суле пули. Антипод pen.
+
 /mob/living/carbon/human/dummy
 	real_name = "Test Dummy"
 	status_flags = GODMODE|CANPUSH
